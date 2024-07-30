@@ -1,0 +1,92 @@
+.calendar-container {
+  padding: 20px;
+  margin-top: 100px;
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.current-month-year {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+
+.calendar-header {
+  display: contents;
+  background-color: #f1f1f1;
+}
+
+.day {
+  font-weight: bold;
+  text-align: center;
+}
+
+.calendar-body {
+  display: contents;
+}
+
+.date {
+  position: relative;
+  border: 1px solid #ddd;
+  padding: 5px;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+}
+
+.day-number {
+  text-align: center;
+  font-weight: bold;
+}
+
+.appointment {
+  background-color: #e0f7fa;
+  margin-bottom: 5px;
+  padding: 5px;
+  border-radius: 4px;
+  cursor: move;
+}
+
+.appointment-title {
+  font-weight: 600;
+  position: relative;
+}
+
+.delete-button {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: red;
+  font-weight: bold;
+}
+
+.drop-list {
+  border: 1px solid #ccc;
+  min-height: 75px;
+  height: 100%;
+  padding: 5px;
+  background: #f9f9f9;
+}
+
+.btn-appointment {
+  margin: 10px 0;
+}
+
+.today {
+  background-color: rgb(231, 208, 117); /* Highlight color for today's date */
+  border: 2px solid blue;
+}

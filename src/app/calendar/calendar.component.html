@@ -1,0 +1,39 @@
+<div class="calendar-container">
+  <div class="navigation-buttons">
+    <button mat-raised-button (click)="changeMonth(-1)">Previous</button>
+    <span class="current-month-year">{{ getFormattedMonthYear() }}</span>
+    <button mat-raised-button (click)="changeMonth(1)">Next</button>
+  </div>
+
+  <div class="calendar-grid">
+    <div class="calendar-header">
+      <div class="day" *ngFor="let day of weekDays">{{ day }}</div>
+    </div>
+    <div class="calendar-body">
+      <div class="date" *ngFor="let day of days" [ngClass]="{'today': isToday(day)}">
+        <div class="day-number">{{ day.getDate() }}</div>
+        <div 
+          cdkDropList 
+          [id]="day.toISOString().split('T')[0]"
+          [cdkDropListData]="appointments[day.toISOString().split('T')[0]] || []"
+          (cdkDropListDropped)="onDrop($event)"
+          [cdkDropListConnectedTo]="dropListIds"
+          class="drop-list"
+        >
+          <div 
+            class="appointment"
+            *ngFor="let appointment of appointments[day.toISOString().split('T')[0]]; let i = index" 
+            cdkDrag 
+            [cdkDragData]="appointment"
+          >
+            <div class="appointment-title">{{ appointment.title }}
+              <button class="delete-button" (click)="deleteAppointment(day, i)">x</button>
+            </div>
+            <div class="appointment-description">{{ appointment.description }}</div>
+          </div>
+        </div>
+        <button class="btn-appointment" mat-button (click)="openAppointmentDialog(day)">Add Appointment</button>
+      </div>
+    </div>
+  </div>
+</div>
